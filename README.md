@@ -14,41 +14,45 @@ You can create your own slider with the [Swiper](https://www.npmjs.com/package/s
 ### `import 'swiper/css';`
 
 
-`import axios from 'axios'`
-`import React, { useEffect, useState } from 'react'`
-`import { URL } from './Api'`
-`import { Swiper, SwiperSlide } from 'swiper/react';`
-`import { Autoplay } from 'swiper';`
-`import 'swiper/css';`
-`const sliderParams = { spaceBetween: 30, centeredSlides: true, autoplay: { delay: 2500, disableOnInteraction: false }, pagination: { clickable: true } }`
-`const App = () => {`
-`  const [data, setData] = useState([])`
+```
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { URL } from './Api'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper';
+import 'swiper/css';
 
-`  const getData = () => {`
-`    axios.get(``${URL}/homeslider/homeslider-list.php``).then(res => {`
-`      setData(res.data)`
-`    })`
-`  }`
+const sliderParams = { spaceBetween: 30, centeredSlides: true, autoplay: { delay: 2500, disableOnInteraction: false }, pagination: { clickable: true } }
 
-`  useEffect(() => { getData() }, [])`
+const App = () => {
+  const [data, setData] = useState([])
 
-`  return (`
-`    <>`
-`      <div className='slider'>`
-`        <Swiper {...sliderParams} modules={[Autoplay]}>`
-`          {`
-`            data.map((item, index) => {`
-`              return (`
-`                <SwiperSlide key={index}>`
-`                  <img src={``${item.image}``} alt={``${item.name}``} width='100%' />`
-`                </SwiperSlide>`
-`              )`
-`            })`
-`          }`
-`        </Swiper>`
-`      </div>`
-`    </>`
-`  )`
-`}`
+  const getData = () => {
+    axios.get(`${URL}/homeslider/homeslider-list.php`).then(res => {
+      setData(res.data)
+    })
+  }
 
-`export default App`
+  useEffect(() => { getData() }, [])
+
+  return (
+    <>
+      <div className='slider'>
+        <Swiper {...sliderParams} modules={[Autoplay]}>
+          {
+            data.map((item, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <img src={`${item.image}`} alt={`${item.name}`} width='100%' />
+                </SwiperSlide>
+              )
+            })
+          }
+        </Swiper>
+      </div>
+    </>
+  )
+}
+
+export default App
+```
