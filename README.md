@@ -3,15 +3,17 @@
 ## Axios
 With the [Axios](https://www.npmjs.com/package/axios) library, you can pull or process both RESTFUL and SOAP data into react applications. 
 ### `npm i axios`
-### `import axios from 'axios';`
+`import axios from 'axios';`
 
 
 ## Swiper
 You can create your own slider with the [Swiper](https://www.npmjs.com/package/swiper) library. You can use ready-made CSS files of the [Swiper](https://www.npmjs.com/package/swiper) library or you can use them by editing. You can run your Slider either automatically or manually.
 ### `npm i swiper`
-### `import { Swiper, SwiperSlide } from 'swiper/react';`
-### `import { Autoplay } from 'swiper';`
-### `import 'swiper/css';`
+```
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper';
+import 'swiper/css';
+```
 
 
 ```
